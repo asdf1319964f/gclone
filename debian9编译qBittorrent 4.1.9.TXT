@@ -29,16 +29,7 @@ cd libtorrent-rasterbar-1.1.13
 make -j$(nproc)
 make install
 ldconfig
-1
-2
-3
-4
-5
-6
-7
-8
- 
-wget https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_13/libtorrent-rasterbar-1.1.13.tar.gz
+get https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_13/libtorrent-rasterbar-1.1.13.tar.gz
 tar xf libtorrent-rasterbar-1.1.13.tar.gz
 cd libtorrent-rasterbar-1.1.13
 ./configure --disable-debug --enable-encryption --with-libgeoip=system
