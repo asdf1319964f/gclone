@@ -5,12 +5,8 @@ debian9的教程，debian8理论上也能搞，但是debian8自带的源搞过�
 1.安裝libtorrent
 先安装依赖：
 apt-get update
-apt-get update
-apt-get install build-essential pkg-config automake libtool git libgeoip-dev python3 python3-dev -y
 apt-get install build-essential pkg-config automake libtool git libgeoip-dev python3 python3-dev -y
 apt-get install libboost-dev libboost-system-dev libboost-chrono-dev libboost-random-dev libssl-dev -y
-apt-get install libboost-dev libboost-system-dev libboost-chrono-dev libboost-random-dev libssl-dev -y
-apt-get install qtbase5-dev qttools5-dev-tools libqt5svg5-dev zlib1g-dev -y
 apt-get install qtbase5-dev qttools5-dev-tools libqt5svg5-dev zlib1g-dev -y
 从NPCHK大佬那边得知。 libtorrent 1.1.13: 适用于qBittorrent4.0.0或更新版本 ，所以就装这个版本吧
 wget https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_13/libtorrent-rasterbar-1.1.13.tar.gz
@@ -42,7 +38,6 @@ make -j$(nproc)
 make install
 3.开机启动
 nano /etc/systemd/system/qbittorrent.service
-nano /etc/systemd/system/qbittorrent.service
 [Unit]
 Description=qBittorrent Daemon Service
 After=network.target
@@ -55,26 +50,10 @@ ExecStop=/usr/bin/killall -w qbittorrent-nox
 
 [Install]
 WantedBy=multi-user.target
-
-[Unit]
-Description=qBittorrent Daemon Service
-After=network.target
- 
-[Service]
-LimitNOFILE=512000
-User=root
-ExecStart=/usr/local/bin/qbittorrent-nox
-ExecStop=/usr/bin/killall -w qbittorrent-nox
- 
-[Install]
-WantedBy=multi-user.target
-启用设置：
 systemctl enable qbittorrent.service
 systemctl enable qbittorrent.service
 启动qBittorrent
 qbittorrent-nox
-qbittorrent-nox
 这时候去访问一下web页面，ip:8080,用户名admin，密码adminadmin，然后更改一下语言啊，下载地址啊之类的设置，按Ctrl+C断下来，退出。这里说下为了防止出错，建议给下载目录0777权限。
 再次运行，这次在后台运行，这样shell关掉了qBittorrent不会结束进程
-systemctl start qbittorrent.service
 systemctl start qbittorrent.service
