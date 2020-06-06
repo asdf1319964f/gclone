@@ -1,0 +1,6 @@
+wget --no-check-certificate -qO inexistence.sh https://github.com/Aniverse/inexistence/raw/master/inexistence.sh
+bash inexistence.sh  qbitorrent一键安装
+bash <(wget -qO- https://git.io/gclone.sh) gclone一键安装
+apt-get install fuse 安装fuse挂载Googledrive 要不然debian无法挂载
+rclone mount 挂载目录 --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 --daemon 挂载Google硬盘
+apt-get install lrzsz 安装lrzsz实现xshell直接把文件上传到vps
